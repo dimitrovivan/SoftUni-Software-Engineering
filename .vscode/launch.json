@@ -9,12 +9,6 @@
                 "<node_internals>/**"
             ],
             "program": "${file}"
-        },
-        {
-            "type": "node-terminal",
-            "name": "Create JavaScript Debug Terminal",
-            "request": "launch",
-            "cwd": "${workspaceFolder}"
-        }
-    ]
+            }
+        ]
 }
