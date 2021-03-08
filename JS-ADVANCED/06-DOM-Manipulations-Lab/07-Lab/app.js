@@ -1,22 +1,20 @@
 function validate() {
     
-    const regex = new RegExp('/^[a-z][a-z\d]+@[a-z]+\.[a-z]+/');
+    const regex = /^[a-z][a-z\d]+@[a-z]+\.[a-z]+/;
 
     let inputElement = document.querySelector('#email');
 
-    inputElement.addEventListener('click', checkIfPass);
+    inputElement.addEventListener('change', e => {
 
-    console.log(inputElement);
-
-    function checkIfPass() {
         let email = inputElement.value;
 
-        inputElement.style.borderColor = regex.test(email) ? 'blue' : 'red';
+        if(regex.test(email)) {
 
-        console.log(email);
-        console.log(regex.test(email));
+            inputElement.classList.remove('error');
+        } else {
+            inputElement.classList.add('error');
 
-   }
+        }
 
-    
+    });
 }
