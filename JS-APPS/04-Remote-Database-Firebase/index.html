@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <title>My Movies</title>
+</head>
+
+<body>
+
+    <div class="register-form">
+        <h1>Register</h1>
+
+        <label for="registerEmail">Email:
+        <input type="email" id="registerEmail" class="inputRegisterEmail" />
+        </label>
+
+        <label for="registerPassword">Password:
+        <input type="password" id="registerPassword" class="inputRegisterPassword" />
+        </label>
+
+        <button class="registerBtn">Register</button>
+    </div>
+
+    <div class="login-form displayNone">
+        <h1>Login</h1>
+
+        <label for="loginEmail">Email:
+        <input type="email" id="loginEmail" class="inputLoginEmail" />
+       </label>
+
+        <label for="loginPassword">Password:
+        <input type="password" id="loginPassword" class="inputLoginPassword" />
+        </label>
+
+        <button class="loginBtn">Login</button>
+    </div>
+
+    <div class="movie-list-wrapper displayNone">
+        <h2>Add movie</h2>
+         <div class="add-movie-form">
+             <label for="movie-name">Movie Name:
+             <input type="text" id="movie-name"/>
+             </label>
+             <br>
+
+             <label for="movie-actor">Actor Name:
+             <input type="text" id="movie-actor" />
+            </label>
+            <br>
+
+            <label for="movie-rating">Rating
+             <input type="text" id ="movie-rating"/>
+            </label>
+            <br>
+
+            <label for="movie-img">Picture-URL
+             <input type="text" id ="movie-img" />
+            </label>
+            <br>
+         </div>
+         <button class="addMovieBtn">Add Movie</button>
+        <br>
+        <br>
+
+        <h2>Display all movies in db</h2>
+        <button class="displayMovies">Display</button>
+        <section class ="all-movies-section"></section>
+    </div>
+
+
+
+    <script src="./config.js"></script>
+    <script src="./register.js"></script>
+    <script src="./login.js"></script>
+    <script src="./movies.js"></script>
+</body>
+
+</html>
