@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  <title>Contacts</title>
+</head>
+
+<body>
+  <h1>My contacts</h1>
+  <div id="contacts">
+    
+  </div>
+
+  <script src="./contacts.js"></script>
+
+  <script type="text/x-handlebars-template" id="contact-view">
+
+    <div class="contact card">
+      <div>
+        <i class="far fa-user-circle gravatar"></i>
+      </div>
+      <div class="info">
+        <h2>Name: {{name}}</h2>
+        <button class="detailsBtn">Details</button>
+        <div class="details" id="{{id}}">
+          <p>Phone number: {{phoneNumber}}</p>
+          <p>Email: {{email}}</p>
+        </div>
+      </div>
+    </div>
+
+  </script>
+  
+  <script>
+
+    const parentContactElement = document.querySelector('#contacts');
+    
+    const contactView = document.querySelector('#contact-view').innerHTML;
+
+    let contactTemplate = Handlebars.compile(contactView);
+    
+    let contactHtml = contacts.map(contact => contactTemplate(contact)).join('');
+
+    parentContactElement.innerHTML = contactHtml;
+
+
+    parentContactElement.addEventListener('click', e => {
+                
+      let checkIfIsDisplayBtn = e.target.classList.contains('detailsBtn');
+
+      if(!checkIfIsDisplayBtn) {
+        return;
+      }
+
+      let divToDisplay = e.target.parentElement.querySelector('div.details');
+      
+      divToDisplay.style.display = divToDisplay.style.display == 'block' ? 'none' : 'block';
+    })
+
+  </script>
+</body>
+
+</html>
