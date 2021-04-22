@@ -1,9 +1,11 @@
     <header>
         <nav>
             <ul>
+                {{#if isLogged}}
                 <li>
-                    <a href="">Create new offer</a>
-                </li> 
+                    <a href="/create-offer" class="nav-link">Create new offer</a>
+                </li>
+                {{/if}}
                 <li class="site-logo">Shoe</li>
                 <li>
                     <a href="">
@@ -11,9 +13,11 @@
                     </a>
                 </li> 
                 <li class="site-logo">Shelf</li>
+                {{#if isLogged}}
                 <li>Welcome, xxx@xx.xxx | 
-                    <a  href="">Logout</a>
+                    <a  href="/logout" class="nav-link">Logout</a>
                 </li>
+                {{/if}}
             </ul>
         </nav>
     </header>

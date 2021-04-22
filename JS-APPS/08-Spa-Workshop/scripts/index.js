@@ -1,12 +1,24 @@
-async function getTemplate(templateName) {
-    
-    const templatePath = `./templates/${templateName}.hbs`;
+import {router} from './router.js';
+import {init, getDomElement} from './init.js';
 
-    let response = await fetch(templatePath);
+init();
 
-    let data = await response.text();
+getDomElement["root"].addEventListener('click', checkIfTargetMatchAndNavigate);
 
-    let template = Handlebars.compile(data);
 
-    return template;
+function checkIfTargetMatchAndNavigate(e) {
+
+    e.preventDefault();
+
+    if(!lookForMatchInClassList('nav-link', e.target) || !lookForMatchInTagName('a', e.target)) return;
+
+    let newUrl = new URL(e.target.href);
+      
+    router(newUrl.pathname);
 }
+
+const lookForMatchInClassList = (lookingClassName, currentElement) => currentElement.classList.contains(lookingClassName) ? true : false;
+
+const lookForMatchInTagName = (lookingTag, currentElement) => lookingTag.toLowerCase() === (currentElement.tagName).toLowerCase() ? true: false;
+
+
