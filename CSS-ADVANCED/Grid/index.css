@@ -1,0 +1,23 @@
+body {
+    min-height: 100vh;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: center;
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+.box--black {
+    background-color: black;
+}
+
+.box--white {
+    background-color: white;
+    border: 1px solid black;
+}

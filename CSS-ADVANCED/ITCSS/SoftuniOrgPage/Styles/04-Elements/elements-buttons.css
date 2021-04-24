@@ -1,0 +1,10 @@
+button {
+    font-size: 14px;
+    border: none;
+    text-align: center;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
