@@ -1,0 +1,14 @@
+
+.parent-articles {
+    display: flex;
+    justify-content: space-between;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+article > h2 {
+    margin: 10px 0 0 0;
+}

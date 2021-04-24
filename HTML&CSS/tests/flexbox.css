@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.wrapper {
+    max-width: 65vw;
+    flex-flow: row wrap;
+    min-height: 50vh;
+    display: flex;
+    margin: 20px auto;
+}
+
+.week {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 3;
+}
+.notes {
+    display: flex;
+    flex: 1;
+}
+
+span {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.notes {
+    flex-flow: column wrap;
+}
+
+
+.week span{
+    padding-top: 10px;
+}
+
+.workweek,
+.weekend {
+    width: 100%;
+}
+
+.notes span {
+    flex: 1;
+}
+
+.workday {
+    flex: 1;
+}
+
+
+

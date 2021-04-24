@@ -1,0 +1,24 @@
+a[class = "fas fa-star"] {
+    border: solid;
+    background-color: green;
+    border-color: green;
+    color: white;
+    height: 20px;
+    text-decoration: none;
+}
+
+a[class = "fas fa-envelope"] {
+    border: solid;
+    background-color: orangered;
+    border-color: orangered;
+    color: white;
+    height: 20px;
+    text-decoration: none;
+}
+
+.anchorsParagrpahs {
+    border: solid;
+    border-color: gray;
+    border-radius: 1rem;
+    text-align: center;
+}

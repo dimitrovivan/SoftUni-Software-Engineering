@@ -1,0 +1,9 @@
+.boxP {
+    border: 5px solid black;
+    background-color: rgb(64,224,208);
+    border-radius: 10px;
+    width: 200px;
+    padding: 20px;
+    margin: auto;
+}
+

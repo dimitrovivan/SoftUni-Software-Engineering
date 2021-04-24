@@ -1,0 +1,61 @@
+
+.wrapper {
+    box-sizing: border-box;
+    border: 2px solid gray;
+    background-color: rgb(238,238,238);
+    padding: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Helvetica, sans-serif;
+}
+hr {
+    width: 60%;
+}
+.firstParagraphs, .secondParagraphs, .thirdParagraphs, h1 {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+.try {
+    width: 50%;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+h2 {
+    font-weight: 400;
+}
+.headingTitle {
+    text-transform: uppercase;
+}
+.asideBlockquote {
+    margin: 0;
+    display: inline-block;
+    border-left: 3px solid white;
+    padding-left: 20px;
+    font-style: italic;
+    opacity: 0.5;
+    min-width: 35%;
+    max-width: 35%;
+}
+
+.blockQuoteBottom {
+    text-align: right;
+}
+
+.firstPicture, .secondPicture {
+    width: 200px;
+    border: 3px solid black;
+    padding: 3px;
+}
+.secondTry {
+    width: 30%;
+}
+.firstPicture {
+    float: right;
+}
+
+.secondParagraphs {
+    clear: both;
+}

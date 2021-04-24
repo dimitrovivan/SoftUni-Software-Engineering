@@ -1,0 +1,19 @@
+
+main {
+    background-color: rgb(238, 238, 238);
+    padding: 5px 15px;
+}
+h1, nav, li {
+    display: inline-block;
+}
+
+li {
+
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+li a {
+    text-decoration: none;
+    color: green;
+}

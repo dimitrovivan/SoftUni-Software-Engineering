@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main {
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    max-width: 60%;
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+img {
+    height: 180px;
+    width: 140px;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    flex: 1;
+}
+
+
+div {
+    background-color: white;
+    display: flex;
+    margin: 20px;
+    height: 250px;
+    width: 190px;
+    border: 5px solid black;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

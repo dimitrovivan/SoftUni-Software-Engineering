@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+}
+
+h1{
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav > ul > li {
+  list-style: none;
+  color: green;
+  margin-right: 25px;
+}

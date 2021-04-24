@@ -1,0 +1,26 @@
+.div-wrapper {
+    border: 2px solid red;
+    display: inline-flex;
+    align-items: baseline;
+    flex-flow: column wrap;
+}
+
+.a1,
+.a2,
+.a3 {
+    background-color: gray;
+    margin: 20px;
+}
+
+.a1 {
+    padding: 50px;
+    height: 100px;
+}
+
+.a2 {
+    height: 70px;
+}
+
+.a3 {
+    height: 150px;
+}

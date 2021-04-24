@@ -1,0 +1,23 @@
+.fill button {
+    color: white;
+    border-radius: 15px;
+    height: 30px;
+    background-color: black;
+    outline: none;
+}
+
+.normalButton button {
+    color: black;
+    border-radius: 15px;
+    height: 30px;
+    outline: none;
+}
+
+.hover:hover {
+ background-color: rgb(0, 102, 0);
+}
+
+.buttonPerforms {
+    margin-left: 100px;
+    margin-top: 70px
+}

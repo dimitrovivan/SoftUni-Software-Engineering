@@ -1,0 +1,15 @@
+.game-parent {
+    max-height: 1600px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.game-child {
+    display: flex;
+    justify-content: center;
+    max-width: 20px;
+    border: 1px solid black;
+    padding: 15px;
+    
+}
