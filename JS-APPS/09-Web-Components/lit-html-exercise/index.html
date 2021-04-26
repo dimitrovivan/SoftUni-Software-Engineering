@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lit-Html-Test</title>
+</head>
+<body>
+
+    <app-root></app-root>
+    <template class="card-template">
+        <h2>Template test</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <button>Push</button>
+    </template>
+    
+
+    <script type="module">
+       import {html, render} from './node_modules/lit-html/lit-html.js';
+
+       class AppRoot extends HTMLElement {
+
+        constructor() {
+            super();
+
+            // let template = document.querySelector('.card-template');
+
+            // let clonedTemplateContent = template.content.cloneNode(true);
+
+            let template = (name, isLiked=false) => html`
+            <h2>${name}</h2>
+            <p ?isLiked=${isLiked}>Lorem ipsum dolor sit amet.</p>
+            <button @click=${(e) => {console.log(e);}}>Push</button>
+            `
+ 
+            render(template('Ivan'), this);
+        }
+       }
+
+       window.customElements.define('app-root',AppRoot);
+
+    //    let tag = ( strings , values) => {
+
+    //     console.log(strings);
+    //     console.log(values);
+    //    }
+
+    //    let name = "Ivan";
+
+    //    tag`My Name is ${name}.`
+    </script>
+</body>
+</html>

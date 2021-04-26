@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component</title>
+    <style>
+        h3 {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h3>Web components heading</h3>
+
+<app-root name="Batman">ASGASGAS</app-root>
+<app-root name="Superman">Some Slot Decrip</app-root>
+
+<template id="card-template">
+    <h2>Hello world</h2>
+    <p><slot></slot></p>
+    <button is="fancy-button"></button>
+</template>
+
+
+<script>
+
+    class AppRoot extends HTMLElement {
+
+        constructor() {
+            super();
+
+           let superHeroName = this.getAttribute("name");
+
+            this.attachShadow({mode: "open"});
+
+           let cardTemplate = document.querySelector('#card-template');
+
+           let clonedTemplate = cardTemplate.content.cloneNode(true);
+
+           clonedTemplate.querySelector('h2').innerText = superHeroName;
+
+           this.shadowRoot.appendChild(clonedTemplate);
+
+    }
+    }
+
+    class FancyButton extends HTMLButtonElement {
+
+        constructor() {
+            super();
+
+            this.innerHTML = "Fancy Button";
+        }
+    }
+    window.customElements.define('app-root', AppRoot);
+    window.customElements.define('fancy-button', FancyButton, {extends: 'button'});
+
+</script>    
+</body>
+</html>
