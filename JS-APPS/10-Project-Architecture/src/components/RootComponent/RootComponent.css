@@ -1,0 +1,13 @@
+.root-component-template ul {
+    list-style: none;
+    background-color: gray;
+    padding: 40px;
+}
+
+.root-component-template li {
+
+    margin-bottom: 20px;
+    color: black;
+    text-decoration: dotted;
+
+}
