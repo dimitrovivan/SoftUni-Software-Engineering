@@ -5,7 +5,15 @@ const rootElement = document.querySelector('#root');
 const routes = [
     {
         path: '/',
-        execute: async () => getHtmlResult('home')
+        execute: async () => {
+            
+            let context = {};
+
+            let userToken = localStorage.getItem('userToken');
+            context.isLogged = userToken ? true: false;
+
+            return getHtmlResult('home', context);
+        }
     },
     {
         path: '/login',
@@ -13,7 +21,10 @@ const routes = [
     },
     {
         path: '/register',
-        execute: async () => getHtmlResult('register')
+        execute: async () => {
+                 
+            return getHtmlResult('register');
+        }
     },
     {
         path: '/create',

@@ -1,5 +1,6 @@
+ {{>header}}
  <div class="container auth">
-        <form action="#" method="">
+        <form action="/"  name="registerForm">
             <fieldset>
                 <legend>Register</legend>
                 <blockquote>Knowledge is not simply another commodity. On the contrary. Knowledge is never used up. It increases by diffusion and grows by dispersion.</blockquote>
@@ -8,19 +9,20 @@
                     <label for="email">Email:</label>
                 </p>
                 <p class="field password">
-                    <input type="password" name="password" id="register-pass">
+                    <input type="password" name="password" id="password">
                     <label for="register-pass">Password:</label>
                 </p>
                 <p class="field password">
-                    <input type="password" name="rep-pass" id="rep-pass">
+                    <input type="password" name="rep-pass" id="repPassword">
                     <label for="rep-pass">Repeat password:</label>
                 </p>
                 <p class="field submit">
-                    <button class="btn submit" type="submit">Register</button>
+                    <button class="btn submit" type="submit"  onclick="register()">Register</button>
                 </p>
                 <p class="field">
-                    <span>If you already have profile click <a href="#">here</a></span>
+                    <span>If you already have profile click <a href="/login" class="nav-link">here</a></span>
                 </p>
             </fieldset>
         </form>
     </div>
+ {{>footer}}

@@ -1,9 +1,8 @@
 import {init} from './scripts/init.js';
 import { navigate } from './scripts/router.js';
 
-init();
-
 const rootElement = document.querySelector('#root');
+
 rootElement.addEventListener('click', (e) => {
 
     e.preventDefault();
@@ -13,3 +12,6 @@ rootElement.addEventListener('click', (e) => {
     navigate(e.target.href);
 
 })
+
+init();
+

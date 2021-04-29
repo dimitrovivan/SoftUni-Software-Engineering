@@ -1,8 +1,15 @@
-export async function getHtmlResult(templateName) {
+
+export async function getHtmlResult(templateName, context = null) {
+
  
     let view = await getTemplateView(templateName);
 
     let template = Handlebars.compile(view);
+
+    if(context) {
+        
+        return template(context);
+    }
 
     return template();
 }
