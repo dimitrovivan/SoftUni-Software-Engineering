@@ -1,5 +1,6 @@
+{{>header}} 
  <div class="container">
-        <form action="#" method="">
+        <form name="createArticleForm">
             <fieldset>
                 <legend>Create article</legend>
                 <p class="field title">
@@ -17,9 +18,10 @@
                 </p>
 
                 <p class="field submit">
-                    <button class="btn submit" type="submit">Create</button>
+                    <button class="btn submit" type="submit" onclick="createArticle()">Create</button>
                 </p>
 
             </fieldset>
         </form>
     </div>
+{{>footer}} 
