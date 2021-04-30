@@ -7,7 +7,7 @@ const rootElement = document.querySelector('#root');
 
 const routes = [
     {
-        path: '/',
+        path: /^(\/)$/gm,
         execute: async () => {
             
             let context = {};
@@ -18,7 +18,6 @@ const routes = [
              
             let convertedArticleData = convertObj(data);
 
-
             context.jsArticles= convertedArticleData.js;
             context.javaArticles= convertedArticleData.java;
             context.cSharpArticles= convertedArticleData.cSharp;
@@ -28,8 +27,9 @@ const routes = [
         }
     },
     {
-        path: '/login',
+        path: /^(\/login)$/gm,
         execute: async () => { 
+
 
             let context = {};
 
@@ -40,7 +40,7 @@ const routes = [
         }
     },
     {
-        path: '/register',
+        path: /^(\/register)$/gm,
         execute: async () => {
 
             let context = {};
@@ -51,7 +51,7 @@ const routes = [
         }
     },
     {
-        path: '/create',
+        path: /^(\/create)$/gm,
         execute: async () =>  {
             
             let context = {};
@@ -62,7 +62,7 @@ const routes = [
         }
     },
     {
-        path: '/logout',
+        path: /^(\/logout)$/gm,
         execute: async () => {
             
             let context = {};
@@ -73,6 +73,17 @@ const routes = [
             return getHtmlResult('/login', context);
         }
     },
+    {
+        path: /^(\/details\/).+$/gm,
+        execute: async () =>  {
+
+            let context = {};
+
+            context.isLogged = checkIfIsLogged();
+
+            return getHtmlResult('details', context);
+        }
+    },
 ]
 
 export async function router(pathName) {
@@ -80,6 +91,8 @@ export async function router(pathName) {
     try {
 
     let route = checkForValidPath(pathName);
+
+    console.log(route);
 
     if (!route) return navigate('/');
 
@@ -94,7 +107,9 @@ export async function router(pathName) {
 
 export function navigate(pathName) {
 
-    if(!checkIfIsSamePath(pathName)) history.pushState({}, '', pathName);
+    if(checkIfIsSamePath(pathName)) return;
+    
+    history.pushState({}, '', pathName);
 
     let customPopStateEvent = new CustomEvent('popstate');
 
@@ -116,9 +131,23 @@ export function redirect(pathName) {
 
 export function checkForValidPath(pathName) {
 
-    return routes.find( ({path}) => path === pathName);
+    let result = false;
+        
+    Object.entries(routes).forEach( ([key, value]) => {
+
+       if (pathName.match(value.path)) result = value;
+
+    })
+
+    return result;
 
 }
 
-const checkIfIsSamePath = (pathName) => location.pathname == pathName ? true : false;
+const checkIfIsSamePath = (pathName) => {
+
+     if(location.pathname != pathName || history.length < 2) return false;
+     return true;
+
+}
+    
     

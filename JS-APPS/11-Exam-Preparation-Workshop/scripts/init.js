@@ -27,8 +27,8 @@ export function init() {
                 Handlebars.registerPartial('article', articleHtml);
 
                     if(!checkForValidPath(path)) return redirect('/');
-
                     return redirect(path);
+
                })
                .catch(err => console.log(err))
 }
