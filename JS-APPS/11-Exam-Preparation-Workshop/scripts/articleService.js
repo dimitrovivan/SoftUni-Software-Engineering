@@ -31,3 +31,26 @@ export async function getAllArticles() {
     
     return data;
 }
+
+export async function getArticleById(id) {
+
+    let URL = `${baseURL}/articles/${id}.json`;
+
+    let response = await request.get(URL);
+    let data = await response.json();
+
+    return data;
+}
+
+
+export async function deleteOnClick() {
+
+    let articleId = location.pathname.split('/')[2];
+
+    let URL = `${baseURL}/articles/${articleId}.json`;
+
+    let response = await request.del(URL);
+
+    redirect('/');
+
+}

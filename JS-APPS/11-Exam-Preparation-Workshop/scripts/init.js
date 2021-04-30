@@ -1,7 +1,8 @@
 import { getPartialTemplateView } from './templateService.js';
 import { redirect, checkForValidPath } from './router.js';
 import { register, login } from './userService.js';
-import { createArticle } from './articleService.js';
+import { createArticle, deleteOnClick } from './articleService.js';
+import { backOnClick } from './util.js';
 
 export function init() { 
 
@@ -14,6 +15,8 @@ export function init() {
     window.register = register;
     window.login = login;
     window.createArticle = createArticle;
+    window.backOnClick = backOnClick;
+    window.deleteOnClick = deleteOnClick;
     //
 
     Promise.all([
@@ -27,6 +30,7 @@ export function init() {
                 Handlebars.registerPartial('article', articleHtml);
 
                     if(!checkForValidPath(path)) return redirect('/');
+
                     return redirect(path);
 
                })

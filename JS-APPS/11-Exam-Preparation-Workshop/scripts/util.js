@@ -9,6 +9,12 @@ export const request = {
         method: "POST",
         body: JSON.stringify(body),
         returnSecureToken: true
+    }),
+
+    del: (url, body = {}) => fetch(url, {
+        method: "DELETE",
+        body: JSON.stringify(body),
+        returnSecureToken: true
     })
 }
 
@@ -52,4 +58,8 @@ export function convertObj(obj) {
 
     return result;
 
+}
+
+export function backOnClick() {
+    history.back();
 }

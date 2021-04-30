@@ -1,6 +1,6 @@
 import { getHtmlResult } from './templateService.js';
 import { checkIfIsLogged, removeUserToken } from './userService.js';
-import { getAllArticles } from './articleService.js';
+import { deleteOnClick, getAllArticles, getArticleById } from './articleService.js';
 import { convertObj } from './util.js';
 
 const rootElement = document.querySelector('#root');
@@ -30,11 +30,9 @@ const routes = [
         path: /^(\/login)$/gm,
         execute: async () => { 
 
-
             let context = {};
 
             context.isLogged = checkIfIsLogged();
-
 
             return getHtmlResult('login', context)
         }
@@ -79,11 +77,25 @@ const routes = [
 
             let context = {};
 
-            context.isLogged = checkIfIsLogged();
+            let articleId = location.pathname.split('/')[2];
+
+            let articleData = await getArticleById(articleId);
+
+            let isLogged = checkIfIsLogged();
+
+            context = {isLogged, ...articleData, key: articleId};
 
             return getHtmlResult('details', context);
         }
     },
+
+    {
+        path: /^(\/delete\/).+$/gm,
+        execute: async () =>  {
+
+            return redirect('/');
+        }
+    }
 ]
 
 export async function router(pathName) {
@@ -91,8 +103,6 @@ export async function router(pathName) {
     try {
 
     let route = checkForValidPath(pathName);
-
-    console.log(route);
 
     if (!route) return navigate('/');
 
@@ -106,8 +116,6 @@ export async function router(pathName) {
 }
 
 export function navigate(pathName) {
-
-    if(checkIfIsSamePath(pathName)) return;
     
     history.pushState({}, '', pathName);
 
@@ -143,7 +151,7 @@ export function checkForValidPath(pathName) {
 
 }
 
-const checkIfIsSamePath = (pathName) => {
+export const checkIfIsSamePath = (pathName) => {
 
      if(location.pathname != pathName || history.length < 2) return false;
      return true;
