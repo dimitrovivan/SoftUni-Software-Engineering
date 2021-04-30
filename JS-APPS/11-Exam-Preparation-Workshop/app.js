@@ -9,7 +9,9 @@ rootElement.addEventListener('click', (e) => {
 
     if(!e.target.tagName === 'A' || !e.target.classList.contains('nav-link')) return;
 
-    navigate(e.target.href);
+    let newURL = new URL(e.target.href);
+
+    navigate(newURL.pathname);
 
 })
 

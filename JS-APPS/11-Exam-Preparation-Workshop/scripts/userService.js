@@ -1,4 +1,5 @@
 import { redirect } from './router.js';
+import { request } from './util.js';
 
 const firebaseApiKey = "AIzaSyD6suWfrwshBeeidEnbvGXKd23YQnuLvqU";
 const registerURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseApiKey}`;
@@ -43,16 +44,20 @@ export async function login() {
     redirect('/');
 }
 
-const request = {
 
-    get: (url) => fetch(url, {
-        method: "GET",
-        returnSecureToken: true
-    }),
-       
-    post: (url, body = {}) => fetch(url, {
-        method: "POST",
-        body: JSON.stringify(body),
-        returnSecureToken: true
-    })
+export function checkIfIsLogged() {
+
+    let userToken = localStorage.getItem('userToken');
+
+    return userToken ? true : false;
+
+}
+
+export function removeUserToken() {
+    localStorage.removeItem("userToken");
+}
+
+export function getUserData() {
+   
+    return localStorage.getItem("userToken");
 }
