@@ -10,7 +10,8 @@ export async function createArticle() {
     let createArticleForm = document.forms.createArticleForm;
 
     let title = createArticleForm.querySelector('#title').value;
-    let category = createArticleForm.querySelector('#category').value;
+    let selectionCategory = createArticleForm.querySelector('#category');
+    let category = selectionCategory.options[selectionCategory.selectedIndex].text;
     let content = createArticleForm.querySelector('#content').value;
 
     if(!title || !category || !content) return;

@@ -25,6 +25,8 @@ export async function register() {
 }
 
 export async function login() {
+
+    try {
    
     let loginForm = document.forms.loginForm;
 
@@ -42,6 +44,10 @@ export async function login() {
     localStorage.setItem("userToken", data.localId);
     
     redirect('/');
+
+    } catch(e) {
+        console.log(`In login ${e.error}`);
+    }
 }
 
 

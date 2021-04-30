@@ -31,3 +31,11 @@ form {
 p{
     word-break: break-all;
 }
+
+form[name="createArticleForm"] #category {
+    margin: 0 100px;
+    width: 20%;
+    height: 30px;
+    border-radius: 15px;
+    outline: none;
+}

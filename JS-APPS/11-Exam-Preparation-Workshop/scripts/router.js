@@ -70,12 +70,14 @@ const routes = [
             removeUserToken();
             context.isLogged = checkIfIsLogged();
 
-            return getHtmlResult('home', context);
+            return getHtmlResult('/login', context);
         }
     },
 ]
 
 export async function router(pathName) {
+
+    try {
 
     let route = checkForValidPath(pathName);
 
@@ -84,6 +86,9 @@ export async function router(pathName) {
     let htmlResult = await route.execute();
 
     rootElement.innerHTML = htmlResult;
+    } catch(e) {
+        console.log('In router' + e.error);
+    }
 
 }
 
