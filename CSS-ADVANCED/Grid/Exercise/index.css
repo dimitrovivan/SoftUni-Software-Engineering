@@ -1,0 +1,24 @@
+.header,
+.main,
+.aside,
+.footer {
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 22px;
+    color: white;
+    background-color: slategrey;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.extra-container {
+    border-radius: 5px;
+    padding: 40px;
+    font-size: 22px;
+    color: white;
+    background-color: red;
+}
