@@ -21,7 +21,12 @@ router.post('/create', validateCubeInputs , ( req, res ) => {
 
     let cube = productServices.createCube(req.body);
 
-    res.redirect('/');
+    productServices.addCubeInDatabase(cube)
+                                          .then( () => res.redirect('/') )
+                                          .catch( err => {
+                                              res.send(err);
+                                          })
+
 });
 
 
