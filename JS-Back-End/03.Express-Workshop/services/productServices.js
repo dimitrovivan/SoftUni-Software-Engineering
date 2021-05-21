@@ -6,6 +6,8 @@ const uniqId = require('uniqid');
 
 const getAllCubes = () => require('../config/productDB.json');
 
+const getCubeById = (id) => getAllCubes().find( x => x.id == id );
+
 function createCube(data) {
 
     let cube = new Cube(
@@ -38,4 +40,5 @@ module.exports = {
     createCube,
     addCubeInDatabase,
     getAllCubes,
+    getCubeById
 }

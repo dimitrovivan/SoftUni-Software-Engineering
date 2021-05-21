@@ -13,7 +13,11 @@ router.get('/', ( req, res ) => {
 })
 
 router.get('/details/:productId', ( req, res ) => {
-    res.render('details');
+
+    let productId = req.params.productId;
+    
+    let cubeData = productServices.getCubeById(productId);
+    res.render('details', {...cubeData});
 });
 
 router.get('/create', ( req, res ) => {
