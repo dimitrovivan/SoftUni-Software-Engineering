@@ -6,7 +6,10 @@ const productServices = require('../services/productServices');
 const router = Router();
 
 router.get('/', ( req, res ) => {
-    res.render('home');
+
+    let cubes = productServices.getAllCubes();
+    
+    res.render('home', {cubes});
 })
 
 router.get('/details/:productId', ( req, res ) => {
@@ -19,6 +22,7 @@ router.get('/create', ( req, res ) => {
 
 router.post('/create', validateCubeInputs , ( req, res ) => {    
 
+    //TODO:: good validation for user inputs
     let cube = productServices.createCube(req.body);
 
     productServices.addCubeInDatabase(cube)

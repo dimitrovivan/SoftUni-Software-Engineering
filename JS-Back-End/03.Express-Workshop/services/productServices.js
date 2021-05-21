@@ -4,6 +4,7 @@ const path = require('path');
 const Cube = require('../models/Cube');
 const uniqId = require('uniqid');
 
+const getAllCubes = () => require('../config/productDB.json');
 
 function createCube(data) {
 
@@ -21,8 +22,8 @@ function createCube(data) {
 function addCubeInDatabase(cube) {
 
     let fullPath = path.join(__dirname, '../config/productDb.json');
-    
-    let allCubes = require('../config/productDB.json');
+
+    let allCubes = getAllCubes();
 
     allCubes.push(cube);
 
@@ -35,5 +36,6 @@ function addCubeInDatabase(cube) {
 
 module.exports = {
     createCube,
-    addCubeInDatabase
+    addCubeInDatabase,
+    getAllCubes,
 }
