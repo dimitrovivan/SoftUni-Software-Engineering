@@ -7,7 +7,9 @@ const router = Router();
 
 router.get('/', ( req, res ) => {
 
-    let cubes = productServices.getAllCubes();
+    let queryLength = Object.keys(req.query).length;
+
+    let cubes = queryLength > 0 ? productServices.getAllCubesBySortQuery(req.query) : productServices.getAllCubes();
     
     res.render('home', {cubes});
 })
