@@ -10,7 +10,7 @@ const cubeSchema = new mongoose.Schema({
         required: true,
         maxlength: 50
     },
-    imageURL: {
+    imageUrl: {
         type: String,
         required: true,
         validate: /^https?/
