@@ -19,10 +19,12 @@ const cubeSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    accessories: {
+    accessories: [
+        {
         type: mongoose.Types.ObjectId,
         ref: 'Accessory'
-    }
+        }
+]
 })
 
 module.exports = mongoose.model('Cube', cubeSchema);
