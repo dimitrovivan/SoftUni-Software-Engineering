@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const {register, login} = require('../services/authServices');
+
 const {checkIfAllInputsAreFilled} = require('../middlewares/validate');
+const {isAuthenticated, isAuthorized} = require('../middlewares/auth');
 const { COOKIE_NAME } = require('../config/auth');
 
-router.get('/register', (req, res) => {
+router.get('/register',isAuthenticated,  (req, res) => {
     res.render('register');
 })
 
-router.post('/register', checkIfAllInputsAreFilled, (req, res) => {
+router.post('/register', isAuthenticated, checkIfAllInputsAreFilled, (req, res) => {
     let {username, password, repeatPassword} = req.body;
     if(password !== repeatPassword) return res.render('register');
 
@@ -16,11 +18,11 @@ router.post('/register', checkIfAllInputsAreFilled, (req, res) => {
             .catch((err) => res.send(err.message));
 })
 
-router.get('/login', (req, res) => {
+router.get('/login', isAuthenticated, (req, res) => {
     res.render('login');
 })
 
-router.post('/login', checkIfAllInputsAreFilled, (req, res) => {
+router.post('/login', isAuthenticated, checkIfAllInputsAreFilled, (req, res) => {
    let {username, password} = req.body;
    login(username, password)
         .then(token => {
@@ -32,7 +34,7 @@ router.post('/login', checkIfAllInputsAreFilled, (req, res) => {
 
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', isAuthorized, (req, res) => {
    res.clearCookie(COOKIE_NAME);
    res.redirect('/');
    return;

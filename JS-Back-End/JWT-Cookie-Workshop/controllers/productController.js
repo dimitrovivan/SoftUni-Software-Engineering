@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
 const validateCubeInputs = require('../services/helpers/validations');
+const {isAuthorized} = require('../middlewares/auth');
 const cubeService = require('../services/cubeServices');
 
 const router = Router();
@@ -21,11 +22,11 @@ router.get('/details/:productId', ( req, res ) => {
                                       .catch(() => res.send("HTTP 500. Service unavaiable"));
 });
 
-router.get('/create', ( req, res ) => {
+router.get('/create', isAuthorized, ( req, res ) => {
     res.render('create');
 });
 
-router.post('/create', validateCubeInputs , ( req, res ) => {    
+router.post('/create', isAuthorized, validateCubeInputs , ( req, res ) => {    
 
     let cube = cubeService.createCube(req.body);
     cube.save()

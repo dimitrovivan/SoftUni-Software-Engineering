@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const auth = require('../middlewares/auth');
+const {checkForAuthAndSaveInLocals} = require('../middlewares/auth');
 
 const handlebars = require('express-handlebars');
 
@@ -20,7 +20,7 @@ function setUpExpress(app) {
     
     app.use(cookieParser());
 
-    app.use(auth());
+    app.use(checkForAuthAndSaveInLocals());
 }
 
 module.exports = setUpExpress;
