@@ -32,4 +32,10 @@ router.post('/login', checkIfAllInputsAreFilled, (req, res) => {
 
 })
 
+router.get('/logout', (req, res) => {
+   res.clearCookie(COOKIE_NAME);
+   res.redirect('/');
+   return;
+})
+
 module.exports = router;

@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {SECRET, COOKIE_NAME} = require('../config/auth');
+const {SECRET} = require('../config/auth');
 
 async function getUserByName(username) {
       let result = await User.findOne({username});
@@ -28,6 +28,7 @@ async function login(username, password) {
       let token = jwt.sign({_id: user._id}, SECRET);
       return token;
 }
+
 
 module.exports = {
       register,
