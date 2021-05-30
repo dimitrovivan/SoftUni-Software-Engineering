@@ -6,6 +6,3 @@ router.use('/', homeController);
 router.use('/auth', authController); 
 
 module.exports = router;
-
-
-
