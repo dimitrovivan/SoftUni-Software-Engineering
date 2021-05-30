@@ -14,6 +14,7 @@ function checkForUserStateBeforeRequest(req, res, next) {
         User.findById(decoded._id).lean()
              .then(user => {
                  res.locals.username = user.username;
+                 res.locals._id = user._id;
                  next();
              })
         

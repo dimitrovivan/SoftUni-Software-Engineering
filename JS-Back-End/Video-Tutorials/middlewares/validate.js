@@ -3,7 +3,13 @@ const isAllInputsFilled = (req, res, next) => {
     
     if(result == '') {
         let viewName = req._parsedUrl.path.slice(1);
-        res.render(viewName, {message: "You must fill all inputs"});
+        let modifiedRender;
+        switch(viewName) {
+            case 'register': modifiedRender = res.render.bind(res, 'register');
+            case 'create': modifiedRender = res.render.bind(res, 'create-course');
+        }
+        modifiedRender({message: "You must fill all inputs"});
+        return;
     }
     next();
 }
