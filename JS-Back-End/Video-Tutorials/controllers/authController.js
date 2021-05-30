@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { isAllInputsFilled } = require('../middlewares/validate');
 const { register, login } = require('../services/authServices');
-const {USER_COOKIE} = require('../config/auth');
+const { USER_COOKIE } = require('../config/auth');
+const { isAuth } = require('../middlewares/auth');
 
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', isAuth(), (req, res) => res.render('login'));
 
-router.post('/login', isAllInputsFilled, (req, res) => {
+router.post('/login', isAuth(), isAllInputsFilled, (req, res) => {
 
     login(req.body)
            .then((token) => {
@@ -15,9 +16,9 @@ router.post('/login', isAllInputsFilled, (req, res) => {
            .catch((err) => res.render('login', {message: err.message}))
 })
 
-router.get('/register', (req, res) => res.render('register'));
+router.get('/register', isAuth(), (req, res) => res.render('register'));
 
-router.post('/register', isAllInputsFilled, (req, res) => {
+router.post('/register', isAuth(), isAllInputsFilled, (req, res) => {
     
     let {password, repeatPassword} = req.body;
     if(password !== repeatPassword) return res.render('register', {message: "Password missmatch"});
@@ -27,7 +28,7 @@ router.post('/register', isAllInputsFilled, (req, res) => {
            .catch((err) => res.render('register', {message: err.message}))
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', isAuth("authorization"), (req, res) => {
     if(!Object.keys(req.cookies).find(cookieName => cookieName == USER_COOKIE)) return res.redirect('/auth/login');
     res.clearCookie(USER_COOKIE);
     res.redirect('/');
