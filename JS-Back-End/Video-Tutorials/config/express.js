@@ -1,5 +1,6 @@
 const { urlencoded } = require('express');
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const handlebars = require('express-handlebars');
 
 module.exports = function (app) {
@@ -13,4 +14,6 @@ module.exports = function (app) {
         extname: 'hbs'
     }));
     app.set('view engine', 'hbs');
+    
+    app.use(cookieParser());
 }
