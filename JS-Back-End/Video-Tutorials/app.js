@@ -5,6 +5,7 @@ const router = require('./router');
 const app = express();
 
 require('./config/express')(app);
+require('./config/db')();
 
 app.use(router);
 
