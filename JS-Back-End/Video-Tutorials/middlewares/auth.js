@@ -9,7 +9,7 @@ function checkForUserStateBeforeRequest(req, res, next) {
     if(!cookie) return next();
 
     jwt.verify(cookie[1], SECRET, (err, decoded) => {
-        if(err) return res.render('guest-home', {message: 'Do not try this again, you may be banned! Reason: false cookie info'});
+        if(err) return res.render('home', {message: 'Do not try this again, you may be banned! Reason: false cookie info'});
 
         User.findById(decoded._id).lean()
              .then(user => {
@@ -26,7 +26,7 @@ function isAuth(check = 'authentication') {
     if(!cookie) return check == 'authorization' ? res.redirect('login') : next();
 
     jwt.verify(cookie[1], SECRET, (err, decoded) => {
-        if(err) return res.render('guest-home', {message: 'Do not try this again, you may be banned! Reason: false cookie info'});
+        if(err) return res.render('home', {message: 'Do not try this again, you may be banned! Reason: false cookie info'});
         
         return check == 'authentication' ? res.redirect('/') : next();
     });
