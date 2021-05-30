@@ -3,9 +3,7 @@ const { isAllInputsFilled } = require('../middlewares/validate');
 const { register, login } = require('../services/authServices');
 const {USER_COOKIE} = require('../config/auth');
 
-router.get('/login', (req, res) => {
-    res.render('login');
-})
+router.get('/login', (req, res) => res.render('login'));
 
 router.post('/login', isAllInputsFilled, (req, res) => {
 
@@ -17,9 +15,7 @@ router.post('/login', isAllInputsFilled, (req, res) => {
            .catch((err) => res.render('login', {message: err.message}))
 })
 
-router.get('/register', (req, res) => {
-    res.render('register');
-})
+router.get('/register', (req, res) => res.render('register'));
 
 router.post('/register', isAllInputsFilled, (req, res) => {
     
@@ -30,5 +26,11 @@ router.post('/register', isAllInputsFilled, (req, res) => {
            .then(() => res.redirect('/auth/login'))
            .catch((err) => res.render('register', {message: err.message}))
 })
+
+router.get('/logout', (req, res) => {
+    if(!Object.keys(req.cookies).find(cookieName => cookieName == USER_COOKIE)) return res.redirect('/auth/login');
+    res.clearCookie(USER_COOKIE);
+    res.redirect('/');
+});
 
 module.exports = router;
