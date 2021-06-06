@@ -1,0 +1,16 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    background: linear-gradient(to bottom, white, black);
+    -webkit-mask-image: url('./471px-Star_empty.svg.png');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 20%;
+    height: 100%;
+    width: 100%;
+}
