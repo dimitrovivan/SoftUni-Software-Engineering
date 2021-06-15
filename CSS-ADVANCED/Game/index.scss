@@ -50,13 +50,14 @@ $primary-white: rgb(255, 253, 253);
 
 .page-wrapper {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     background-color: lightgray;
 }
 
 .stickman {
     position: absolute;
-
+    right: 50px;
+    bottom: 100px;
     
     &__head {
         position: relative;
