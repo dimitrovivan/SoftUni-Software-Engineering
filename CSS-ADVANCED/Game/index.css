@@ -1,0 +1,130 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.o-position-center-x {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.o-position-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background-color: lightgray;
+}
+
+.stickman {
+  position: absolute;
+}
+
+.stickman__head {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  background: #272727;
+  border-radius: 50%;
+}
+
+.stickman__right-eye, .stickman__left-eye {
+  top: 7px;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #e6e6e6;
+  border-radius: 50%;
+}
+
+.stickman__right-eye::after, .stickman__left-eye::after {
+  content: '';
+  position: relative;
+  display: block;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 2px;
+  height: 2px;
+  background: black;
+  border-radius: 50%;
+}
+
+.stickman__right-eye {
+  left: 5px;
+}
+
+.stickman__left-eye {
+  right: 5px;
+}
+
+.stickman__mouth {
+  bottom: 5px;
+  display: block;
+  width: 18px;
+  height: 1px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  border: 2px solid #e6e6e6;
+}
+
+.stickman__body {
+  width: 4px;
+  height: 55px;
+  background: #272727;
+}
+
+.stickman__right-hand, .stickman__left-hand {
+  position: absolute;
+  top: 2px;
+  width: 3px;
+  height: 40px;
+  background: #272727;
+}
+
+.stickman__right-hand {
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+  left: 12px;
+}
+
+.stickman__left-hand {
+  -webkit-transform: rotate(80deg);
+          transform: rotate(80deg);
+  top: -11px;
+  right: 18px;
+}
+
+.stickman__right-foot, .stickman__left-foot {
+  position: absolute;
+  bottom: -87px;
+  width: 3px;
+  height: 40px;
+  background: #272727;
+}
+
+.stickman__right-foot {
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  left: -2px;
+}
+
+.stickman__left-foot {
+  -webkit-transform: rotate(140deg);
+          transform: rotate(140deg);
+  right: -2px;
+}
+/*# sourceMappingURL=index.css.map */

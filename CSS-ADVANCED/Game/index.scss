@@ -1,0 +1,137 @@
+//generics
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// variables
+
+$primary-black: rgb(39, 39, 39);
+$black-900: black;
+
+$primary-white: rgb(230, 230, 230);
+
+// sass tools
+
+@mixin circle($size, $color) {
+    width: $size;
+    height: $size;
+    background: $color;
+    border-radius: 50%;
+}
+
+@mixin stick($width, $height, $color) {
+    width: $width;
+    height: $height;
+    background: $color;
+}
+
+//objects
+.o-position-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.o-position-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// components
+
+.page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: lightgray;
+}
+
+.stickman {
+    position: absolute;
+
+    
+    &__head {
+        position: relative;
+        @include circle(25px, $primary-black);
+    }
+
+    &__right-eye,
+    &__left-eye {
+        top: 7px;
+        position: absolute;
+        @include circle(5px, $primary-white);
+
+        &::after {
+            content: '';
+            position: relative;
+            display: block;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include circle(2px, $black-900);
+        }
+    }
+
+    &__right-eye {
+        left: 5px;
+    }
+
+    &__left-eye {
+        right: 5px;
+    }
+
+    &__mouth {
+        bottom: 5px;
+        display: block;
+        width: 18px;
+        height: 1px;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        border: 2px solid $primary-white;
+    }
+
+    &__body {
+        @include stick(4px, 55px, $primary-black);
+    }
+
+    &__right-hand,
+    &__left-hand {
+        position: absolute;
+        top: 2px;
+        @include stick(3px, 40px, $primary-black);
+    }
+
+    &__right-hand {
+        transform: rotate(150deg);
+        left: 12px;
+    };
+
+    &__left-hand {
+        transform: rotate(80deg);
+        top: -11px;
+        right: 18px;
+    }
+
+    &__right-foot,
+    &__left-foot {
+        position: absolute;
+        bottom: -87px;
+        @include stick(3px, 40px, $primary-black);
+    }
+
+    &__right-foot {
+        transform: rotate(40deg);
+        left: -2px;
+    }
+
+    &__left-foot {
+        transform: rotate(140deg);
+        right: -2px;
+    }
+
+}
