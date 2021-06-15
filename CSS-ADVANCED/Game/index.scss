@@ -12,7 +12,10 @@
 $primary-black: rgb(39, 39, 39);
 $black-900: black;
 
-$primary-white: rgb(230, 230, 230);
+$red-100: #7b2626;
+
+$primary-white: rgb(255, 253, 253);
+
 
 // sass tools
 
@@ -132,6 +135,31 @@ $primary-white: rgb(230, 230, 230);
     &__left-foot {
         transform: rotate(140deg);
         right: -2px;
+    }
+
+}
+
+.pistol {
+     position: absolute;
+     bottom: -17px;
+     left: -18px;
+
+    &__grip,
+    &__slider {
+        border: 1px solid $primary-black;
+        background-color: $red-100;
+    }
+
+    &__grip {
+        padding: 6px 1px;
+    }
+
+    &__slider {
+        padding: 1px 15px;
+        position: absolute;
+        top: -3px;
+        left: -28px;
+        border-radius: 2px;
     }
 
 }

@@ -45,7 +45,7 @@
   position: absolute;
   width: 5px;
   height: 5px;
-  background: #e6e6e6;
+  background: #fffdfd;
   border-radius: 50%;
 }
 
@@ -78,7 +78,7 @@
   height: 1px;
   border-bottom-left-radius: 70px;
   border-bottom-right-radius: 70px;
-  border: 2px solid #e6e6e6;
+  border: 2px solid #fffdfd;
 }
 
 .stickman__body {
@@ -126,5 +126,28 @@
   -webkit-transform: rotate(140deg);
           transform: rotate(140deg);
   right: -2px;
+}
+
+.pistol {
+  position: absolute;
+  bottom: -17px;
+  left: -18px;
+}
+
+.pistol__grip, .pistol__slider {
+  border: 1px solid #272727;
+  background-color: #7b2626;
+}
+
+.pistol__grip {
+  padding: 6px 1px;
+}
+
+.pistol__slider {
+  padding: 1px 15px;
+  position: absolute;
+  top: -3px;
+  left: -28px;
+  border-radius: 2px;
 }
 /*# sourceMappingURL=index.css.map */
