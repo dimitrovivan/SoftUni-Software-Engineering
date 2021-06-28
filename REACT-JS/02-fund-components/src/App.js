@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import BookList from './components/BookList';
+import Counter from './components/Counter';
 
 const books = [
   {
@@ -25,7 +26,8 @@ function App() {
   return (
     <div className="page-wrapper">
        <Header></Header>
-       <BookList books={books}></BookList>
+       <BookList books={books}>Hey</BookList>
+       <Counter></Counter>
      </div>
   );
 }
