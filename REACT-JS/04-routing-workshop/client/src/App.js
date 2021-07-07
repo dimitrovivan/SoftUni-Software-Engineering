@@ -1,9 +1,16 @@
-import style from './App.module.css';
+import { BrowserRouter } from 'react-router-dom';
+
+import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <div className={style.container}>
-      
+    <div className="container">
+      <BrowserRouter>
+
+        <Header />
+        
+      </BrowserRouter>
     </div>
   );
 }

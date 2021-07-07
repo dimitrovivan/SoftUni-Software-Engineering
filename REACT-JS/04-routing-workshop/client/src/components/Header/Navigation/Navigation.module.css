@@ -1,0 +1,89 @@
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: center;  
+    letter-spacing: 0.05rem;
+    background: #234465;
+    padding: 0.8rem 1rem;
+    color: white;
+  }
+
+  .navbarDashboard > a{
+    list-style: none;
+    text-decoration: none;
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    
+}
+
+.navbar ul {
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin: 0;
+  }
+  nav.navbar ul li {
+    display: block;
+    list-style: none outside;
+    position: relative;
+  }
+  nav.navbar ul li a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: cadetblue;
+    color: rgb(255, 255, 255);
+  }
+  .button:hover,
+  nav.navbar ul li a:hover,
+  nav.navbar ul li:hover > a {
+    background: rgb(248, 215, 107);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+
+  
+
+
+.dashboard nav{
+    background: transparent;
+}
+.navbarDashboard{
+    display: flex;
+    justify-content: space-between;    
+    width: 100vw;
+}
+.navbar .firstBar{
+    display: flex;
+    align-items: center;
+}
+.navbar .firstBar a{
+    color: white;
+    margin-right: 0.5rem;
+}
+.navbar .firstBar input{  
+    margin-right: 0.5rem;
+}
+#site-header > nav > section > div.firstBar > a:nth-child(1){
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar .firstBar form{
+    display: flex;
+    align-items: center;
+}
+.navbar .secondBar ul{
+    display: flex;
+    align-items: center;
+}
+.navbar .secondBar ul li{
+    margin-right: 0.5rem;
+}
+.navbar-anonymous ul{
+    display: flex;
+}
