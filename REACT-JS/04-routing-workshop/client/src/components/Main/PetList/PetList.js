@@ -11,6 +11,7 @@ class PetList extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         fetch('http://localhost:3001/pets')
                .then(res => res.json())
                .then(data => this.setState({pets: data}));

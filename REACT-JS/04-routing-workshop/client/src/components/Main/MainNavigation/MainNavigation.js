@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 
 import style from './MainNavigation.module.css';
 
