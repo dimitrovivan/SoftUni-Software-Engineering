@@ -6,7 +6,7 @@ import style from './MainNavigation.module.css';
 class MainNavigation extends Component {
     render() {
         return (
-            <nav class={style.navbar}>
+            <nav className={style.navbar}>
                         <ul>
                             <li><NavLink to="/categories/all">All</NavLink></li>
                             <li><NavLink to="/categories/cats">Cats</NavLink></li>

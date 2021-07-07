@@ -1,21 +1,34 @@
 import { Component } from "react";
-import { NavLink } from "react-router-dom";
+import PetListItem from "./PetListItem";
 
 class PetList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            pets: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3001/pets')
+               .then(res => res.json())
+               .then(data => this.setState({pets: data}));
+    }
+
     render() {
         return (
-            <ul class="other-pets-list">
-                <li class="otherPet">
-                    <h3>Name: Kiro</h3>
-                    <p>Category: Dog</p>
-                    <p class="img"><img src="http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bbde.png" /></p>
-                    <p class="description">This is my dog Kiro</p>
-                    <div class="pet-info">
-                        <NavLink to="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></NavLink>
-                        <NavLink to={`/pet/details/$:id`}><button class="button">Details</button></NavLink>
-                        <i class="fas fa-heart"></i> <span> 4</span>
-                    </div>
-                </li>
+            <ul className="other-pets-list">
+                {
+                  this.state.pets?.map(pet => <PetListItem 
+                                                           key={pet.id} 
+                                                           name={pet.name}
+                                                           imageURL={pet.imageURL}
+                                                           category={pet.category}
+                                                           description={pet.description}
+                                              />
+                                       )
+               }
             </ul>
         )
     }

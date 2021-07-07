@@ -7,7 +7,7 @@ class Main extends Component {
     render() {
         return (
             <main id='site-content'>
-                <section class='dashboard'>
+                <section className='dashboard'>
                     <h1>Dashboard</h1>
                     <MainNavigation />
                     <PetList />
