@@ -13,17 +13,21 @@ function checkEachPeriodCallback(acc, obj) {
      return acc;
 }
 
-const getCertainPeriod = (allPeriods, startDate, endDate) => allPeriods.find( x => isDuplicatedDates(x, {from: startDate, to: endDate}))
+const getCertainPeriod = (
+                           allPeriods, 
+                           startDate, 
+                           endDate
+                                    )  => allPeriods.find( x => isDuplicatedDates(x, {from: startDate, to: endDate}))
 
 function calcDays(date1, date2) {
-    let time = Number(new Date(date2).getTime() - new Date(date1).getTime()) 
-    let msInDays = 1000 * 3600 * 24;
-    
+    const msInDays = 1000 * 3600 * 24;
+    let time = new Date(date2).getTime() - new Date(date1).getTime();
+
     return time / msInDays + 1;
 }
 
 function sumTotalPriceForPeriod(allPeriods, startDate, endDate, defaultPrice) {
-    let clearedPeriods = clearDuplicatePeriods(allPeriods);
+    const clearedPeriods = clearDuplicatePeriods(allPeriods);
     let periodPriceByDay = getCertainPeriod(clearedPeriods, startDate, endDate)?.price_per_day || defaultPrice;
     let days = calcDays(startDate, endDate);
     
