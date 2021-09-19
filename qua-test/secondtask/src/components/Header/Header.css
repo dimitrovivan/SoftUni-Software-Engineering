@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 40vh;
 }
 
 .top-heading {
@@ -25,16 +24,16 @@
 
 .top-heading::before {
     background-color: var(--bg-color);
-    animation: typeWriter var(--typeWriterSpeed) .8s steps(var(--typeWriterSteps)) forwards;
+    animation: typeWriter var(--typeWriterSpeed) .5s steps(var(--typeWriterSteps)) forwards;
 }
 
 .top-heading::after {
     width: 3.5px;
     height: 100%;
     background-color: var(--blue-700);
-    animation: typeWriter var(--typeWriterSpeed) .8s steps(var(--typeWriterSteps)) forwards,
+    animation: typeWriter var(--typeWriterSpeed) .5s steps(var(--typeWriterSteps)) forwards,
                blink 700ms steps(var(--typeWriterSteps)) infinite,
-               dissapear 1s 3.5s forwards;
+               dissapear 1s 2.5s forwards;
 }
 
 @keyframes typeWriter {
