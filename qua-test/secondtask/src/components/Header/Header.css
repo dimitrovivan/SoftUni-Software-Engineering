@@ -1,0 +1,56 @@
+.m-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 40vh;
+}
+
+.top-heading {
+    position: relative;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--blue-700);
+}
+
+.top-heading::before,
+.top-heading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.top-heading::before {
+    background-color: var(--bg-color);
+    animation: typeWriter var(--typeWriterSpeed) .8s steps(var(--typeWriterSteps)) forwards;
+}
+
+.top-heading::after {
+    width: 3.5px;
+    height: 100%;
+    background-color: var(--blue-700);
+    animation: typeWriter var(--typeWriterSpeed) .8s steps(var(--typeWriterSteps)) forwards,
+               blink 700ms steps(var(--typeWriterSteps)) infinite,
+               dissapear 1s 3.5s forwards;
+}
+
+@keyframes typeWriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
+
+@keyframes dissapear {
+    to {
+        opacity: 0;
+    }
+}
