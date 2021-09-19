@@ -1,0 +1,9 @@
+.m-footer {
+    background-color: var(--blue-700);
+}
+
+.copyright-text {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
