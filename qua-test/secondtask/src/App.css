@@ -4,3 +4,15 @@
     --typeWriterSpeed: 2s;
     --typeWriterSteps: 21;
 }
+
+textarea {
+    display: block;
+}
+
+input {
+    outline: none;
+}
+
+input:hover {
+    cursor: pointer;
+}

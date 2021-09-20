@@ -2,6 +2,10 @@
     background-color: var(--blue-700);
 }
 
+.m-footer h5 {
+    margin: 0;
+}
+
 .copyright-text {
     text-align: center;
     color: white;
