@@ -4,16 +4,16 @@ import OtherPetsList from "../OtherPetsList/OtherPetsList";
 
 const Dashboard = () => {
     return (
-        <section class="dashboard">
+        <section className="dashboard">
           <h1>Dashboard</h1>
           <nav className="navbar">
             <ul>
-              <li><NavLink to="/dashboard/all">All</NavLink></li>
-              <li><NavLink to="/dashboard/cats">Cats</NavLink></li>
-              <li><NavLink to="/dashboard/dogs">Dogs</NavLink></li>
-              <li><NavLink to="/dashboard/parrots">Parrots</NavLink></li>
-              <li><NavLink to="/dashboard/reptiles">Reptiles</NavLink></li>
-              <li><NavLink to="/dashboard/other">Other</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/all">All</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/cats">Cats</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/dogs">Dogs</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/parrots">Parrots</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/reptiles">Reptiles</NavLink></li>
+              <li><NavLink activeClassName="nav-link-selected" to="/dashboard/other">Other</NavLink></li>
             </ul>
           </nav>
 

@@ -5,14 +5,14 @@ const CreatePet = () => {
                 <fieldset>
                     <legend>Add new Pet</legend>
                     <p className="field">
-                        <label for="name">Name</label>
+                        <label htmlFor="name">Name</label>
                         <span className="input">
                             <input type="text" name="name" id="name" placeholder="Name" />
                             <span className="actions"></span>
                         </span>
                     </p>
                     <p className="field">
-                        <label for="description">Description</label>
+                        <label htmlFor="description">Description</label>
                         <span className="input">
                             <textarea rows="4" cols="45" type="text" name="description" id="description"
                                 placeholder="Description"></textarea>
@@ -20,14 +20,14 @@ const CreatePet = () => {
                         </span>
                     </p>
                     <p className="field">
-                        <label for="image">Image</label>
+                        <label htmlFor="image">Image</label>
                         <span className="input">
                             <input type="text" name="imageURL" id="image" placeholder="Image" />
                             <span className="actions"></span>
                         </span>
                     </p>
                     <p className="field">
-                        <label for="category">Category</label>
+                        <label htmlFor="category">Category</label>
                         <span className="input">
                             <select type="text" name="category">
                                 <option>Cat</option>

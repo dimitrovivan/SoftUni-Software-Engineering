@@ -369,3 +369,7 @@ nav.navbar ul li:hover > a {
 .navbar-anonymous ul{
     display: flex;
 }
+
+.nav-link-selected {
+  background-color: lightgreen !important;
+}
